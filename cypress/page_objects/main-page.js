@@ -9,5 +9,15 @@ export class MainPage {
     clickFormAuthentication() {
         cy.get(":nth-child(21) > a").click();
     }
+
+
+
+
+
+
+
+    
 }
+
+
 
