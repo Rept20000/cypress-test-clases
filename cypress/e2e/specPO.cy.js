@@ -19,6 +19,4 @@ it("The user is logged correctly", () => {
     SecureAreaPage.checkMessage("You are logged into a Secure Area");
 });
 
-
-
 })
