@@ -6,17 +6,17 @@ import { SecureAreaPage } from "../page_objects/secure-page";
 
 describe("pruebas.login", () => {
 
-const MainPage = new MainPage();
-const LoginPage = new LoginPage();
-const SecureAreaPage = new SecureAreaPage();
+    const mainPage = new MainPage();
+    const loginPage = new LoginPage();
+    const secureAreaPage = new SecureAreaPage();
 
 it("The user is logged correctly", () => {
     mainPage.visitMainPage();
     mainPage.clickFormAuthentication();
     loginPage.enterUser("tomsmith");
-    loginPage.enterPass("Supersecretpassword!");
+    loginPage.enterPass("SuperSecretPassword!");
     loginPage.clickLoginButton();
-    SecureAreaPage.checkMessage("You are logged into a Secure Area");
+    secureAreaPage.checkMessage("You are logged into a Secure Area");
 });
 
 })
