@@ -32,7 +32,7 @@ describe('TODO app E2E', () => {
       })
 
       it('Add different task and check if filters work', () => {
-        cy.get('.new-todo').type("check weather for Malaga{enter}")
+        cy.get('.new-todo').type("check weather for {enter}")
         cy.get(':nth-child(2) > .view > .toggle').click()
         cy.get(':nth-child(2) > a')
         cy.get('.footer').contains("1 item left")
