@@ -1,50 +1,46 @@
-describe("tests-page-todo", () => {
-    beforeEach(() => {
-      cy.visit("http://todomvc-app-for-testing.surge.sh/");
-    });
+describe('TODO app E2E', () => {
+  beforeEach(() => {
+    cy.visit('https://todomvc-app-for-testing.surge.sh')
+    cy.get('.new-todo').type("New Task 1{enter}")
+  });  
   
-    it("user can create a task ", () => {
-      cy.get(".new-todo").type("check weather for the weekend{enter}");
-      cy.get(".todo-list").contains("check weather for the weekend");
-    });
-    it("user can mark task as completed ", () => {
-      cy.get(".new-todo").type("check weather for the weekend{enter}");
-      cy.get(".toggle").click();
-      cy.get(":nth-child(1) > .view > label").contains("check weather for the weekend");
-    });
-    it("user can unmark task as not completed ", () => {
-      cy.get(".new-todo").type("check weather for the weekend{enter}");
-      cy.get(".toggle").click();
-      cy.get(".toggle").click();
-      cy.get(".todo-list").contains("check weather for the weekend");
-    });
-    it("user can edit task ", () => {
-      cy.get(".new-todo").type("ccheck weather for the weekend{enter}");
-      cy.get("label").dblclick();
-      cy.get(".editing").type("{selectall}{backspace} check weather for today{enter}");
-      cy.get(".todo-list").contains(" check weather for today");
-    });
-    it("user can delete task  ", () => {
-      cy.get(".new-todo").type("check weather for today{enter}");
-      cy.get("label").trigger("mouseover");
-      cy.get(".destroy").invoke("show").click({ force: true });
-      cy.get(".new-todo");
-    });
-    it("user can filter tasks  ", () => {
-      cy.get(".new-todo").type("check weather for the weekend{enter}");
-      cy.get(".new-todo").type("check weather for today{enter}");
-      cy.get(".new-todo").type("check weather by hours{enter}");
-      cy.get(".new-todo").type("c{enter}");
-      cy.get(":nth-child(1) > .view > .toggle").click();
-      cy.get(":nth-child(3) > .view > .toggle").click();
-      cy.get(":nth-child(3) > a").click();
-      cy.get(":nth-child(2) > .view > label").contains("check weather for the weekend");
-      cy.get(":nth-child(1) > .view > label").contains("check weather for today");
-      cy.get(":nth-child(2) > a").click();
-      cy.get(":nth-child(1) > .view > label").contains("check weather by hours");
-      cy.get(":nth-child(2) > .view > label").contains("check weather in malaga");
-      cy.get(":nth-child(1) > a").click();
-    });
-  });
+  it('Add task', () => {
+      cy.get('label').contains("check weather for the weekend")
+    })
 
-  
+    it('Mark task as completed', () => {
+        cy.get('.toggle').click()
+        cy.get('.footer').contains("No items left")
+      })
+
+      it('Mark task as completed and then reverse it', () => {
+        cy.get('.toggle').click()
+        cy.get('.footer').contains("No items left")
+        cy.get('.toggle').click()
+        cy.get('.footer').contains("1 item left")
+      })
+
+      it('Edit Task Name', () => {
+        cy.get('label').dblclick()
+        cy.focused().clear().type("check weather for today")
+        cy.get('label').contains("check weather for today")
+      })
+
+      it('Remove the task', () => {
+        cy.get('.destroy').invoke('show').click()
+        cy.get('.label').should('not.exist')
+      })
+
+      it('Add different task and check if filters work', () => {
+        cy.get('.new-todo').type("check weather for Malaga{enter}")
+        cy.get(':nth-child(2) > .view > .toggle').click()
+        cy.get(':nth-child(2) > a')
+        cy.get('.footer').contains("1 item left")
+        cy.get(':nth-child(3) > a').click()
+        cy.get(':nth-child(2) > .view > label').should('not.exist')
+        cy.get(':nth-child(2) > a').click()
+        cy.get(':nth-child(2) > .view > label').should('not.exist')
+        cy.get(':nth-child(1) > a').click()
+        cy.get(':nth-child(2) > .view > label').should('exist')
+      })
+})
