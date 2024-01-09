@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 // Segundo test de Cypress/Shifting Content
 
-import { MainPage2 } from "../cypress/page_objects/main-page2.js";
-import { shiftingContent } from "/cypress/page_objects/shiftingContent";
+import { MainPage2 } from "../page_objects/main-page2";
+import { shiftingContent } from "../page_objects/shiftingContent";
 
 describe("Shifting Content Test", () => {
 
