@@ -20,8 +20,3 @@ cy.get('table').should('have.length', 1).find('tr').should('have.length', 5);
 
 })
 
-//../cypress/page_objects/main-page2.js
-//C:\Users\pacoe\Desktop\cypress-test-clases\cypress\page_objects\main-page2.js
-
-
-//../page_objects/main-page2
