@@ -16,18 +16,3 @@ export class MainPage2 {
 
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
