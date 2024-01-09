@@ -2,11 +2,12 @@
 // Segundo test de Cypress/Shifting Content
 
 import { MainPage2 } from "../page_objects/main-page2";
-import { shiftingContent } from "../page_objects/shiftingContent";
+import { ShiftingContent } from "../page_objects/shiftingContent";
 
 describe("Shifting Content Test", () => {
 
-
+    const mainPage2 = new MainPage2();
+    const shiftingContent = new ShiftingContent();
     
 it("should verify the table contains 5 elements", () => {
     MainPage2.visitMainPage2();
