@@ -6,8 +6,8 @@ import { ShiftingContent } from "../page_objects/shiftingContent";
 
 describe("Shifting Content Test", () => {
 
-    const mainPage2 = new MainPage2();
-    const shiftingContent = new ShiftingContent();
+    const MainPage2 = new MainPage2();
+    const ShiftingContent = new ShiftingContent();
     
 it("should verify the table contains 5 elements", () => {
     MainPage2.visitMainPage2();
