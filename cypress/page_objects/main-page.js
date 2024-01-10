@@ -2,21 +2,22 @@
 
 export class MainPage {
 
-    visitMainPage() {
+    visitMainPage() 
+    {
         cy.visit("https://the-internet.herokuapp.com/");
     }
 
-    clickFormAuthentication() {
+    clicclickShiftingContent() 
+    
+    {
+        cy.get(':nth-child(39) > a').click()
+    }
+
+    clickFormAuthentication() 
+    {
         cy.get(":nth-child(21) > a").click();
     }
 
-
-
-
-
-
-
-    
 }
 
 
