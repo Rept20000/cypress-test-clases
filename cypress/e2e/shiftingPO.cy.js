@@ -16,7 +16,7 @@ it("should verify the table contains 5 elements", () => {
   //.clickshiftingContent();
   cy.get(':nth-child(39) > a').click();
 
-  shiftingContent.navigateToMenuElement();
+  //shiftingContent.navigateToMenuElement();
 
 // Verify the table contains 5 elements usando get
 
