@@ -10,13 +10,14 @@ describe("Shifting Content Test", () => {
   const shiftingContent = new ShiftingContent();
     
 it("should verify the table contains 5 elements", () => {
-  mainPage
+  
+   mainPage
   .visitMainPage();
   
   cy.get(':nth-child(39) > a').click();
   cy.get('[href="/shifting_content/menu"]').click();
     
-// Verify the table contains 5 elements usando get
+// Verificando tabla contiene 5 elements usando get
 
 cy.get('li').should('have.length', 5);
     
