@@ -12,13 +12,10 @@ describe("Shifting Content Test", () => {
 it("should verify the table contains 5 elements", () => {
   mainPage
   .visitMainPage();
-  //mainPage
-  //.clickshiftingContent();
+  
   cy.get(':nth-child(39) > a').click();
   cy.get('[href="/shifting_content/menu"]').click();
-  
-  //shiftingContent.navigateToMenuElement();
-
+    
 // Verify the table contains 5 elements usando get
 
 cy.get('li').should('have.length', 5);
