@@ -1,14 +1,24 @@
 /// <reference types="cypress" />
-//Creo Clase shiftingContent
-export class shiftingContent {
 
-    visitshiftingContent() 
+//export class ShiftingContent {
+
+  //  visitshiftingContent() 
     
-    {
-    navigateToMenuElement() 
-    cy.get(':nth-child(39) > a').click();
+    //{
+    //navigateToMenuElement() 
+    //cy.get(':nth-child(39) > a').click();
+    //}
+
+//}
+
+
+export class ShiftingContent {
+
+    visitshiftingContent() {
+      cy.visit('https://the-internet.herokuapp.com/shifting_content');
     }
-
-}
-
-
+  
+    navigateToMenuElement() {
+      cy.get(':nth-child(39) > a').click();
+    }
+  }
