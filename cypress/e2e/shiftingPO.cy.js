@@ -9,7 +9,7 @@ describe("Shifting Content Test", () => {
   const mainPage = new MainPage();
   const shiftingContent = new ShiftingContent();
     
-it("should verify the table contains 5 elements", () => {
+it("tabla debería contener 5 elements", () => {
   
    mainPage
   .visitMainPage();
