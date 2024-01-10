@@ -21,7 +21,7 @@ it("should verify the table contains 5 elements", () => {
 
 // Verify the table contains 5 elements usando get
 
-cy.get('table').should('have.length', 1).find('tr').should('have.length', 5);
+cy.getlength('li').should('have.length', 5);
     
 });
 
